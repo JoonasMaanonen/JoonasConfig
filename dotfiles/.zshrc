@@ -1,4 +1,6 @@
 # Exports {{{
+export ZONE="europe-west4-b"
+export INSTANCE_NAME="joonas-fastai-mylly"
 export GITHUB_USER="JoonasMaanonen"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 export GREP_OPTIONS='--color=auto'
@@ -42,6 +44,12 @@ alias firefox="firefox & > /dev/null 2>&1"
 alias spotify="spotify &  > /dev/null 2>&1"
 alias okular="okular > /dev/null 2>&1"
 alias pdf="evince > /dev/null 2>&1"
+alias ls="ls -F"
+alias lol="git log --oneline --graph --abbrev-commit --decorate --all"
+alias logl="git log --oneline --graph --abbrev-commit --decorate --date=relative"
+alias aja="~/Ohjelmointi/koneurakointi/aja.sh"
+alias python=python3
+
 
 
 # }}}

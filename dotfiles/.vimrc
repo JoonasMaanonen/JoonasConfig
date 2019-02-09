@@ -1,6 +1,17 @@
 " Settings {{{
 " Switch syntax highlighting on, when the terminal has colors
+
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 syntax on
+" Disable annoying beeping sounds
+set noerrorbells
+
+set novisualbell
+
+set noeb vb t_vb=
 
 " Use vim, not vi api
 set nocompatible
@@ -110,21 +121,25 @@ set showmatch
 " Set built-in file system explorer to use layout similar to the NERDTree plugin
 let g:netrw_liststyle=3
 
-" Always highlight column 80 so it's easier to see where
-" cutoff appears on longer screens
+" Always highlight column 80, since 79 characters is the maximum line length
+" according to the PEP8 python style guide.
 autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
 set colorcolumn=80
-" }}}
+"}}}
 
 " Plugins {{{" "
+
 
 let g:pathogen_disabled = []
 execute pathogen#infect()
 filetype plugin indent on " required by Pathogen Plugin Manager
 
 " Theme
+set termguicolors
 set background=light
-colorscheme Tomorrow-Night
+colorscheme onedark
+
+
 
 " CtrlP
 map <leader>t <C-p>
