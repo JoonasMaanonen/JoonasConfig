@@ -5,16 +5,20 @@
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+
+let g:gitgutter_realtime = 0
+
 syntax on
 " Disable annoying beeping sounds
 set noerrorbells
+
+
 
 set novisualbell
 
 set noeb vb t_vb=
 
-" Use vim, not vi api
-set nocompatible
+" Use vim, not vi api set nocompatible
 
 " No backup files
 set nobackup
@@ -67,7 +71,12 @@ set tabstop=4
 set shiftwidth=4
 
 " Turn on line numbers
-set number
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " Highlight tailing whitespace
 " See issue: https://github.com/Integralist/ProVim/issues/4
@@ -112,6 +121,16 @@ set cursorline
 " Visual autocomplete for command menu (e.g. :e ~/path/to/file)
 set wildmenu
 
+
+"let g:ale_fixers = {
+" \ 'javascript': ['eslint']
+" \ }
+
+"let g:ale_sign_error = '❌'
+"let g:ale_sign_warning = '⚠️'
+
+"let g:ale_fix_on_save = 1
+
 " redraw only when we need to (i.e. don't redraw when executing a macro)
 set lazyredraw
 
@@ -140,6 +159,9 @@ set background=light
 colorscheme onedark
 
 
+" Ctags
+set tags+=/usr/lib/python3/dist-packages/kivy/tags
+set tags+=/home/joonas/.kivy/garden/garden.graph/tags
 
 " CtrlP
 map <leader>t <C-p>
@@ -181,7 +203,7 @@ let g:gist_open_browser_after_post = 1
 " NORMAL mode Ctrl+y then , <C-y,>
 
 " Git gutter
-let g:gitgutter_enabled = 1
+let g:gitgutter_enabled = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 highlight clear SignColumn
@@ -292,7 +314,7 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 " file formats
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 " http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
-autocmd FileType sh,cucumber,ruby,yaml,zsh,vim setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType sh,cucumber,ruby,yaml,zsh,vim,html,javascript setlocal shiftwidth=2 tabstop=2 expandtab
 
 " specify syntax highlighting for specific files
 autocmd Bufread,BufNewFile *.spv set filetype=php
@@ -330,8 +352,11 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 " Close all folds when opening a new buffer
-autocmd BufRead * setlocal foldmethod=marker
+"autocmd BufRead * setlocal foldmethod=marker
 autocmd BufRead * normal zM
+
+set foldmethod=manual
+set foldlevel=5
 
 " Rainbow parenthesis always on!
 if exists(':RainbowParenthesesToggle')
@@ -361,4 +386,7 @@ fun! SetDiffColors()
   highlight DiffText   cterm=bold ctermfg=white ctermbg=DarkRed
 endfun
 autocmd FilterWritePre * call SetDiffColors()
+
 " }}}
+"
+"

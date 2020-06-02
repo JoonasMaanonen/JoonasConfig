@@ -1,8 +1,10 @@
 # Exports {{{
-export ZONE="europe-west4-b"
+export ZONE="europe-west4-c"
 export INSTANCE_NAME="joonas-fastai-mylly"
 export GITHUB_USER="JoonasMaanonen"
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/stack # Reorder PATH so local bin is first
+export PATH=~/node-v10.16.3-linux-x64/bin:$PATH
+export PATH=~/miniconda3/bin:$PATH
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
@@ -11,6 +13,25 @@ export TERM="screen-256color"
 export CLICOLOR=1
 export LSCOLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+
+
+# Car collector test env vars
+export SECRET_KEY='MySecret'
+export MODEL_FILE_URL='https://www.dropbox.com/s/myqut34h04mhguk/export_model.pkl?dl=1'
+export BRAND_FILE_URL='https://www.dropbox.com/s/tbd3v1zw9t07rfw/export_brand.pkl?dl=1'
+export MODEL_FILE_NAME='export_model.pkl'
+export BRAND_FILE_NAME='export_brand.pkl'
+
+
+# Android stuff
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+source "/home/joonas/.ghcup/env"
 # }}}
 # Ruby {{{
 function get_ruby_version() {
@@ -48,7 +69,7 @@ alias ls="ls -F"
 alias lol="git log --oneline --graph --abbrev-commit --decorate --all"
 alias logl="git log --oneline --graph --abbrev-commit --decorate --date=relative"
 alias aja="~/Ohjelmointi/koneurakointi/aja.sh"
-alias python=python3
+#alias python=python3
 
 
 
@@ -291,3 +312,20 @@ pura () {
        echo "'$1' is not a valid file!"
    fi
  }
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/joonas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/joonas/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/joonas/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/joonas/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

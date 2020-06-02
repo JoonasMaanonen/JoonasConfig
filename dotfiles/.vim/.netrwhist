@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/puhelinluettelo/src'
+let g:netrw_dirhist_2='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/puhelinluettelo/src/components'
+let g:netrw_dirhist_3='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/puhelinluettelo/src'
+let g:netrw_dirhist_4='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/puhelinluettelo/src/components'
+let g:netrw_dirhist_5='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/puhelinluettelo/src/services'
+let g:netrw_dirhist_6='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/part2'
+let g:netrw_dirhist_7='/home/joonas/Koulu/syksy2019/fullstackopen2019/2_osa/part2/src'
